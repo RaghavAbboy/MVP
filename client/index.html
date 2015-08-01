@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="trendline">
+<head>
+  <meta charset="UTF-8">
+  <title>mvp test</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+</head>
+
+<!-- Title, SearchBox and a container for the graph -->
+<body ng-controller="mainController as main">
+  <h1>Test - h1</h1>
+	
+	<!-- Search box -->
+	<h3>Enter search criterion:</h3>
+	<form class="input-group" ng-submit="main.submit()">
+			<span ng-click="main.submit()" class="input-group-addon">
+				<span class="glyphicon glyphicon-search"></span>
+			</span>
+			<input type="text" class="form-control" ng-model="main.searchInput" placeholder="Search">
+	</form>
+	
+	<!-- Graph -->
+	<div class="container" ng-model="main.searchInput"> <h3> {{main.searchInput}} </h3> </div>
+
+  <!-- Script Files -->
+  <script src="app/app.js"></script>
+  <script src="app/mainCtrl.js"></script>
+</body>
+</html>
