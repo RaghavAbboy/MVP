@@ -29,7 +29,6 @@ app.post('/getData', function(req, res) {
 	 function(err, data, response) {
 	 	//console.log('Data from twitter:',data)
 	 	res.send(data);
-	 	//res.end();
 	 });
 });
 

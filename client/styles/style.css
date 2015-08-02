@@ -1,0 +1,20 @@
+body {
+	background-image: url('background.jpg');
+	background-size: 100%;
+	background-attachment: fixed;
+}
+
+.light {
+	font-family: 'helvetica';
+	text-align: center;
+	font-weight: lighter;
+	color: white;
+}
+
+.searchbox {
+	padding: 10px 0px;
+}
+
+.tweet {
+	opacity: 0.7;
+}

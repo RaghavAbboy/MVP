@@ -4,28 +4,37 @@
   <meta charset="UTF-8">
   <title>mvp test</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
 </head>
 
 <!-- Title, SearchBox and a container for the graph -->
 <body ng-controller="mainController as main">
-  <h1>Test - h1</h1>
+<div class="container">
+  <h1 class="light">Twitter Scraper - Century Edition</h1>
+  <h3 class="light">Raghav Abboy</h3>
 	
 	<!-- Search box -->
-	<h3>Enter search criterion:</h3>
-	<form class="input-group" ng-submit="main.submit()">
+	<h4 class="light">Enter your topic of interest, to scavenge for tweets:</h4>
+	<form class="input-group searchbox" ng-submit="main.submit()">
 			<span ng-click="main.submit()" class="input-group-addon">
 				<span class="glyphicon glyphicon-search"></span>
 			</span>
 			<input type="text" class="form-control" ng-model="main.searchInput" placeholder="Search">
 	</form>
 	
+	<!--Temporary List to view all the statuses -->
+	<ul class="list-group">
+		<li class="list-group-item tweet" ng-repeat="status in main.statuses">{{status.text}}   ({{status.time}})</li>
+	</ul>
+
 	<!-- Graph -->
-	<div class="container" ng-model="main.searchInput"> <h3> {{main.searchInput}} </h3> </div>
+	<!-- <div class="container" ng-model="main.searchInput"> <h3> {{main.statuses}} </h3> </div> -->
 
   <!-- Script Files -->
   <script src="app/app.js"></script>
   <script src="app/mainCtrl.js"></script>
   <script src="../services/services.js"></script>
+</div>
 </body>
 </html>
