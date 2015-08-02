@@ -1,1 +1,1 @@
-angular.module('trendline', []);
+angular.module('trendline', ['trendline.services']);
