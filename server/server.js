@@ -3,6 +3,7 @@ var keys = require('./config/keys.js');
 var request = require('request');
 var Twit = require('twit');
 var middleware = require('./config/middleware.js');
+var http = require('http');
 
 var T = new Twit({
     consumer_key: keys.consumerKey
@@ -21,7 +22,7 @@ app.use(express.static(__dirname + '/../client'));
 //Handle a POST request
 app.post('/getData', function(req, res) {
 	var searchQuery = req.body.query;
-	console.log('POST request received. query:',searchQuery);
+	//console.log('POST request for tweets received. query:',searchQuery);
 
 	T.get('search/tweets', {
 	 q: searchQuery + ' since:2014-05-05',
@@ -30,6 +31,27 @@ app.post('/getData', function(req, res) {
 	 	//console.log('Data from twitter:',data)
 	 	res.send(data);
 	 });
+});
+
+//Handle a omdb fetch request
+app.post('/getOmdb', function(req,res) {
+	var movie = req.body.movie;
+	console.log('POST request for Omdb received. movie:', movie);
+
+	//Make a GET request to Omdb
+	var url = 'http://www.omdbapi.com/?t='+ movie;
+	http.get( url, function (response) {
+	    var body = '';
+	    response.on('data', function (chunk) {
+	      body += chunk;
+	    });
+	    response.on('end', function () {
+	      console.log('BODY: ' + body);
+	    });
+
+		//console.log('Omdb has responded.', response);
+		res.send(body);
+	});
 });
 
 module.exports = app;
