@@ -16,7 +16,7 @@ angular.module('trendline',['trendline.services'])
 	main.submit = function() {
 		console.log('main.submit says: Submitted. Searched for:', main.searchInput);
 		if(main.searchInput !== '') {
-			main.hashtag = '#' + JSON.parse(JSON.stringify(main.searchInput));
+			main.hashtag = '#' + JSON.parse(JSON.stringify(main.searchInput)).split(' ').join('');
 			Comm.sendQuery(main.hashtag)
 			.then(function (objectArr){
 				//Make an JSON object of the statuses
