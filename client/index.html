@@ -5,6 +5,7 @@
   <title>mvp test</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
 </head>
 
@@ -58,7 +59,7 @@
 		<div class="col-md-6 tweetbox">
 			<h3 class="light" ng-show="main.showInfo">Tweets for {{main.hashtag}}</h3>
 			<ul class="list-group scrollable-menu">
-				<li class="list-group-item tweet" ng-repeat="status in main.statuses">{{status.text}}   ({{status.time}})</li>
+				<li class="list-group-item tweet" ng-repeat="status in main.statuses"><i class="fa fa-twitter fa-lg"></i>  {{status.text}}   ({{status.time}})</li>
 			</ul>
 		</div>
 	</div>
