@@ -1,2 +1,2 @@
-# A Twitter Trend Analyzer
-
+# Uber Critic
+Be the ultimate Movie Critic!
