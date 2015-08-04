@@ -46,11 +46,9 @@ app.post('/getOmdb', function(req,res) {
 	      body += chunk;
 	    });
 	    response.on('end', function () {
-	      console.log('BODY: ' + body);
+	      console.log('Omdb data - BODY: ' + body);
+		  res.send(200, body);
 	    });
-
-		//console.log('Omdb has responded.', response);
-		res.send(body);
 	});
 });
 

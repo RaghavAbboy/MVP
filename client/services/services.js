@@ -27,8 +27,8 @@ angular.module('trendline.services',[])
 			data: { movie: movie }
 		})
 		.then(function(resp) {
-			console.log('POST for movies successful. response:',resp);
-			return resp;
+			console.log('POST for movies successful. response:', resp.data);
+			return resp.data;
 		});
 	}
 
