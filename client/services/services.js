@@ -7,7 +7,7 @@ angular.module('trendline.services',[])
 		return $http({
 			method: 'POST',
 			url: '/getData',
-			data: { query : query }
+			data: { query : '#' + query }
 		})
 		.then(function(resp) {
 			//console.log('POST for tweets successful. response:',resp);

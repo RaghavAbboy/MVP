@@ -39,7 +39,7 @@ app.post('/getOmdb', function(req,res) {
 	console.log('POST request for Omdb received. movie:', movie);
 
 	//Make a GET request to Omdb
-	var url = 'http://www.omdbapi.com/?t='+ movie;
+	var url = 'http://www.omdbapi.com/?t='+ movie + '&tomatoes=true';
 	http.get( url, function (response) {
 	    var body = '';
 	    response.on('data', function (chunk) {

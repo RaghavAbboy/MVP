@@ -11,22 +11,57 @@
 <!-- Title, SearchBox and a container for the graph -->
 <body ng-controller="mainController as main">
 <div class="container">
-  <h1 class="light">Twitter Scraper - Century Edition</h1>
-  <h3 class="light">Raghav Abboy</h3>
+  <h1 class="light">Uber Critic - Be the ultimate critic</h1>
+  <h3 class="light">&#169 Raghav Abboy</h3>
 	
 	<!-- Search box -->
-	<h4 class="light">Enter your topic of interest, to scavenge for tweets:</h4>
-	<form class="input-group searchbox" ng-submit="main.submit()">
-			<span ng-click="main.submit()" class="input-group-addon">
-				<span class="glyphicon glyphicon-search"></span>
-			</span>
-			<input type="text" class="form-control" ng-model="main.searchInput" placeholder="Search">
-	</form>
+	<h4 class="light">Enter your movie of interest, to scavenge for info:</h4>
 	
-	<!--Temporary List to view all the statuses -->
-	<ul class="list-group">
-		<li class="list-group-item tweet" ng-repeat="status in main.statuses">{{status.text}}   ({{status.time}})</li>
-	</ul>
+	<div class="row">
+		<div class="col-md-6">
+			<form class="input-group searchbox" ng-submit="main.submit()">
+					<span ng-click="main.submit()" class="input-group-addon">
+						<span class="glyphicon glyphicon-search"></span>
+					</span>
+					<input type="text" class="form-control" ng-model="main.searchInput" placeholder="Search">
+			</form>
+			<div class="glance light" ng-show="main.showInfo">
+				<h2 class="light"> {{main.movieInfo.Title}} </h2>
+				<!-- Two Column Format -->
+				<div class="row">
+					<div class="col-md-6 poster">
+						<img src={{main.movieInfo.Poster}}/>
+					</div>
+					<div class="col-md-6 movieinfo">
+						<h5 class="light"><em>{{main.movieInfo.Plot}}</em></h5>
+						
+						<h3 class="light">Cast</h3>
+						<h5 class="light">{{main.movieInfo.Actors}}</h5>
+
+						<h3 class="light">Director</h3>
+						<h5 class="light">{{main.movieInfo.Director}}</h5>
+
+						<h3 class="light">Ratings</h3>
+						<h5 class="light">Metascore: {{main.movieInfo.Metascore}}</h5>
+						<h5 class="light">IMDB: {{main.movieInfo.imdbRating}}</h5>
+						<h5 class="light">Rotten Tomatoes: {{main.movieInfo.tomatoRating}}</h5>
+
+						<h4 class="light">Verdict (Rotten Tomatoes) </h4>
+						<h5 lass="light"><em>"{{main.movieInfo.tomatoConsensus}}"</em></h5>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--Tweet List to view all the statuses -->
+		<div class="col-md-6 tweetbox">
+			<h3 class="light">Tweets for {{main.hashtag}}</h3>
+			<ul class="list-group scrollable-menu">
+				<li class="list-group-item tweet" ng-repeat="status in main.statuses">{{status.text}}   ({{status.time}})</li>
+			</ul>
+		</div>
+	</div>
 
 	<!-- Graph -->
 	<!-- <div class="container" ng-model="main.searchInput"> <h3> {{main.statuses}} </h3> </div> -->

@@ -1,5 +1,6 @@
 body {
-	background-image: url('background.jpg');
+	/*background-image: url('background.jpg');*/
+	background-image: url('theatre_background.jpg');
 	background-size: 100%;
 	background-attachment: fixed;
 }
@@ -16,5 +17,15 @@ body {
 }
 
 .tweet {
-	opacity: 0.75;
+	opacity: 0.78;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 500px;
+    overflow-x: hidden;
+}
+
+.tweetbox {
+	margin: auto;
 }

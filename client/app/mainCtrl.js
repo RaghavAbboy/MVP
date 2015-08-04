@@ -4,6 +4,10 @@ angular.module('trendline',['trendline.services'])
 	main.searchInput = '';
 
 	main.statuses = {};
+	main.movieInfo = {};
+
+	main.showInfo = false;
+	main.hashtag = '';
 
 	//***********************************************************************
 	//GET THE SEARCH CRITERIA - MOVIE OF INTEREST, FETCH TWEETS
@@ -12,7 +16,8 @@ angular.module('trendline',['trendline.services'])
 	main.submit = function() {
 		console.log('main.submit says: Submitted. Searched for:', main.searchInput);
 		if(main.searchInput !== '') {
-			Comm.sendQuery(main.searchInput)
+			main.hashtag = '#' + JSON.parse(JSON.stringify(main.searchInput));
+			Comm.sendQuery(main.hashtag)
 			.then(function (objectArr){
 				//Make an JSON object of the statuses
 				//console.log('main.submit says:',objectArr);
@@ -23,9 +28,13 @@ angular.module('trendline',['trendline.services'])
 			.then(function (resultObj) {
 				//JSON of details expected
 				console.log(resultObj);
+				main.movieInfo = resultObj;
 			});
+
+			main.showInfo = true;
 		}
 		else {
+			main.showInfo = false;
 			main.statuses = {};
 		}
 	}
