@@ -56,7 +56,7 @@
 		
 		<!--Tweet List to view all the statuses -->
 		<div class="col-md-6 tweetbox">
-			<h3 class="light">Tweets for {{main.hashtag}}</h3>
+			<h3 class="light" ng-show="main.showInfo">Tweets for {{main.hashtag}}</h3>
 			<ul class="list-group scrollable-menu">
 				<li class="list-group-item tweet" ng-repeat="status in main.statuses">{{status.text}}   ({{status.time}})</li>
 			</ul>
