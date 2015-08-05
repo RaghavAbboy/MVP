@@ -5,6 +5,10 @@ body {
 	background-attachment: fixed;
 }
 
+.chart {
+	background: white;
+}
+
 .light {
 	font-family: 'helvetica';
 	text-align: center;
