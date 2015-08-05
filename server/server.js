@@ -140,7 +140,7 @@ var gendata = function() {
 
 }	
 
-gendata();
+//gendata();
 
 
 module.exports = app;
