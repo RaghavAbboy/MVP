@@ -30,10 +30,10 @@
 				<h2 class="light"> {{main.movieInfo.Title}} </h2>
 				<!-- Two Column Format -->
 				<div class="row">
-					<div class="col-md-6 poster">
+					<div class="col-md-7 poster">
 						<img src={{main.movieInfo.Poster}}/>
 					</div>
-					<div class="col-md-6 movieinfo">
+					<div class="col-md-5 movieinfo">
 						<h5 class="light"><em>{{main.movieInfo.Plot}}</em></h5>
 						
 						<h3 class="light">Cast</h3>
@@ -68,6 +68,7 @@
 	<!-- <div class="container" ng-model="main.searchInput"> <h3> {{main.statuses}} </h3> </div> -->
 
   <!-- Script Files -->
+  <script src="../node_modules/d3/d3.min.js"></script>
   <script src="app/app.js"></script>
   <script src="app/mainCtrl.js"></script>
   <script src="../services/services.js"></script>
